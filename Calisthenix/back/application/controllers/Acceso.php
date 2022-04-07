@@ -36,7 +36,7 @@ class Acceso extends CI_Controller
             }
         } else {
             $obj["resultado"] = false;
-            $obj['mensaje'] = "Password doesn't match";
+            $obj['mensaje'] = "Email or Password are incorrect";
         }
 
         echo json_encode($obj);

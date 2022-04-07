@@ -58,8 +58,8 @@
                     </strong>
                 <?php elseif (!empty($this->session->userdata('idcliente'))) : ?>
                     <strong style="color:white;padding-right: 20px;">
-                        <small> Welcome <?= $this->session->nombre_cliente ?> <?= $this->session->apellidos_cliente ?>
-                        </small>
+                        <a data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true"> Welcome <?= $this->session->nombre_cliente ?> <?= $this->session->apellidos_cliente ?>
+                        </a>
                     </strong>
                 <?php endif; ?>
             </div>
@@ -73,24 +73,28 @@
                     <?php elseif (!empty($this->session->userdata('idcliente'))) : ?>
                         <li class="nav-item"><a class="nav-link" <a href="<?= base_url() ?>home/cierrasesion/<?= $this->session->email_cliente ?>/<?= $this->session->token ?>"><i class="fas fa-user me-2"></i> Log out</a></li>
                     <?php endif; ?>
+
+
                     <!-- MOSTRAR INICIAR SESION O CERRAR SESION -->
-                    <li class="nav-item"><a class="nav-link" href="#services"style="margin-inline:inherit">Utilities</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#portfolio"style="margin-inline:inherit">Productos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services" style="margin-inline:inherit">Utilities</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#portfolio" style="margin-inline:inherit">Products</a></li>
 
 
                     <!-- WISHES -->
                     <?php if (empty($this->session->userdata('idcliente'))) : ?>
                         <li class="nav-item">
-                        <a href="#"onclick="return iniciarSesion()" class="nav-link corazon"style="margin-inline:inherit;display:flex">Wishes
-                                    <i class="fa fa-heart"></i></a></li>
-                          
+                            <a href="#" onclick="return iniciarSesion()" class="nav-link corazon" style="margin-inline:inherit;display:flex">Wishes
+                                <i class="fa fa-heart"></i></a>
+                        </li>
+
                     <?php elseif (!empty($this->session->userdata('idcliente'))) : ?>
-                        <li class="nav-item"> 
-                      <a href="#" class="nav-link corazon" style="margin-inline:inherit;display:flex" onclick="return wishes()"> Wishes<i class="fa fa-heart"></i></a></li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link corazon" style="margin-inline:inherit;display:flex" onclick="return wishes()"> Wishes<i class="fa fa-heart"></i></a>
+                        </li>
                     <?php endif; ?>
                     <!-- WISHES -->
 
- 
+
                     <li class="nav-item"><a class="nav-link " href="#team">Account</a></li>
                 </ul>
             </div>
@@ -186,8 +190,8 @@
                         <i class="fas fa-circle fa-stack-2x text-primary"></i>
                         <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
                     </span>
-                    <h4 class="my-3">Compras Seguras</h4>
-                    <p class="text-muted">Comprar nunca fue tan facil y seguro, hasta que llegamos nosotros.</p>
+                    <h4 class="my-3">Safe shopping</h4>
+                    <p class="text-muted">Get in shape was never this easy</p>
                 </div>
             </div>
         </div>
@@ -295,7 +299,7 @@
                             <div class="forms-container">
                                 <div class="signin-signup">
                                     <form class="login_form">
-                                        <h2 class="title">Iniciar Sesión</h2>
+                                        <h2 class="title">Log in</h2>
                                         <div class="input-field mb-3">
                                             <i class="fas fa-envelope iconleft" style="left:1px;"></i>
                                             <input type="email" placeholder="Correo electrónico" class="input correoel" name="correoelectronico" id="correoelectronico" />
@@ -305,7 +309,7 @@
                                             <input type="password" name="pass" id="pass" autocomplete="off" placeholder="Contraseña" class="input" />
                                             <i onclick="show('pass')" class="fas fa-eye-slash fa-fw" id="display" style="margin-right:10px;"></i>
                                         </div>
-                                        <input type="submit" value="Entrar" class=" btn solid btn-session mb-2" />
+                                        <input type="submit" value="Enter" class=" btn solid btn-session mb-2" />
 
 
                                         <a href="#" onclick="return registrar_usuario()" class="external mb-2"> Create
@@ -438,7 +442,9 @@
                                 <ul class="list-inline">
                                     <li style="display:flex">
                                         <strong style="font-size:1.5rem">Price: &nbsp; </strong>
+                                        <p style="font-size:1.2rem; margin: 0 0 ">$ </p>
                                         <p id="ProjectPrice" style="font-size:1.2rem; margin: 0 10px">Price: </p>
+
 
                                     </li>
                                     <li style="display:flex">
@@ -454,7 +460,7 @@
 
                                 <button id="cerrarmodal" class="btn btn-dark btn-lg text-uppercase" style="margin:0 20px" data-bs-dismiss="modal" type="button">
                                     <i class="fas fa-times me-1"></i>
-                                    Continue looking
+                                    Keep looking
                                 </button>
 
                                 <?php if (empty($this->session->userdata('idcliente'))) : ?>

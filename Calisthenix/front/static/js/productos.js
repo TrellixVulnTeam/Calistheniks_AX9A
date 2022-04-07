@@ -44,50 +44,98 @@ function getcategoria() {
                     deseoid++
                     if (categoria === $("#titulo_productos").html()) {
 
-                        $("#portfolio").append(
-                            `
-                            <div class="col-lg-4 col-sm-6 mb-4 productos" id="${element.idproducto}">
-                            <div class="portfolio-item">
-                            <a onclick="modaljeje(${element.idproducto},'${element.nombre_producto}','${element.descripcion_producto}','${element.imagen_producto}',${element.precio_producto},'${element.categoria_producto}',${element.cantidad})
-                            "class="portfolio-link" data-bs-toggle="modal" href=".portfolio-modal">
-                            <div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid"style="height:500px; width:fill-content;" src="${appData.base_url}static/assets/img/build/img/calistenia/${imagen}"alt="..." />
-                            </a>
-                            <a id="addWishes_${element.idproducto}" onclick="addWishes(${element.idproducto},'${element.nombre_producto}','${element.descripcion_producto}','${element.imagen_producto}',${element.precio_producto},'${element.categoria_producto}')" class="nav-link" style="margin-inline:inherit;display:flex;position:absolute;"> <i id="idcorazon_${element.idproducto}"class="fa fa-heart"></i></a>
-                            <div class="portfolio-caption">
-                            <div class="portfolio-caption-heading">${element.nombre_producto}</div>
-                            <div class="portfolio-caption-subheading text-muted">${element.descripcion_producto}</div>
-
-                            </div>
-                            </div>
-                            </div>
-                            `
-                        )
+                        if(appData.idcliente == ""){
+                            $("#portfolio").append(
+                                `
+                                    <div class="col-lg-4 col-sm-6 mb-4 productos" id="${element.idproducto}">
+                                    <div class="portfolio-item">
+                                    <a onclick="modaljeje(${element.idproducto},'${element.nombre_producto}','${element.descripcion_producto}','${element.imagen_producto}',${element.precio_producto},'${element.categoria_producto}',${element.cantidad})
+                                    "class="portfolio-link" data-bs-toggle="modal" href=".portfolio-modal">
+                                    <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                    </div>
+                                    <img class="img-fluid"style="height:500px; width:fill-content;" src="${appData.base_url}static/assets/img/build/img/calistenia/${imagen}"alt="..." />
+                                    </a>
+                                    <a  onclick="return iniciarSesion()" class="nav-link" style="margin-inline:inherit;display:flex;position:absolute;"> <i class="fa fa-heart"></i></a>
+                                    <div class="portfolio-caption">
+                                    <div class="portfolio-caption-heading">${element.nombre_producto}</div>
+                                    <div class="portfolio-caption-subheading text-muted">${element.descripcion_producto}</div>
+                                    </div>
+                                    </div>
+                                    </div>
+                                    `
+                            )
+                        }
+                        else{
+                            $("#portfolio").append(
+                                `
+                                    <div class="col-lg-4 col-sm-6 mb-4 productos" id="${element.idproducto}">
+                                    <div class="portfolio-item">
+                                    <a onclick="modaljeje(${element.idproducto},'${element.nombre_producto}','${element.descripcion_producto}','${element.imagen_producto}',${element.precio_producto},'${element.categoria_producto}',${element.cantidad})
+                                    "class="portfolio-link" data-bs-toggle="modal" href=".portfolio-modal">
+                                    <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                    </div>
+                                    <img class="img-fluid"style="height:500px; width:fill-content;" src="${appData.base_url}static/assets/img/build/img/calistenia/${imagen}"alt="..." />
+                                    </a>
+                                    <a id="addWishes_${element.idproducto}" onclick="addWishes(${element.idproducto},'${element.nombre_producto}','${element.descripcion_producto}','${element.imagen_producto}',${element.precio_producto},'${element.categoria_producto}')" class="nav-link" style="margin-inline:inherit;display:flex;position:absolute;"> <i id="idcorazon_${element.idproducto}"class="fa fa-heart"></i></a>
+                                    <div class="portfolio-caption">
+                                    <div class="portfolio-caption-heading">${element.nombre_producto}</div>
+                                    <div class="portfolio-caption-subheading text-muted">${element.descripcion_producto}</div>
+                                    </div>
+                                    </div>
+                                    </div>
+                                    `
+                            )
+                        }
+                       
                     }
                     else if ($("#select_categorias :selected").text() == "All") {
-
-                        $("#portfolio").append(
-                            `
-                                <div class="col-lg-4 col-sm-6 mb-4 productos" id="${element.idproducto}">
-                                <div class="portfolio-item">
-                                <a onclick="modaljeje(${element.idproducto},'${element.nombre_producto}','${element.descripcion_producto}','${element.imagen_producto}',${element.precio_producto},'${element.categoria_producto}',${element.cantidad})
-                                "class="portfolio-link" data-bs-toggle="modal" href=".portfolio-modal">
-                                <div class="portfolio-hover">
-                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                                </div>
-                                <img class="img-fluid"style="height:500px; width:fill-content;" src="${appData.base_url}static/assets/img/build/img/calistenia/${imagen}"alt="..." />
-                                </a>
-                                <a id="addWishes_${element.idproducto}" onclick="addWishes(${element.idproducto},'${element.nombre_producto}','${element.descripcion_producto}','${element.imagen_producto}',${element.precio_producto},'${element.categoria_producto}')" class="nav-link" style="margin-inline:inherit;display:flex;position:absolute;"> <i id="idcorazon_${element.idproducto}"class="fa fa-heart"></i></a>
-                                <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">${element.nombre_producto}</div>
-                                <div class="portfolio-caption-subheading text-muted">${element.descripcion_producto}</div>
-                                </div>
-                                </div>
-                                </div>
+                        if(appData.idcliente == ""){
+                            $("#portfolio").append(
                                 `
-                        )
+                                    <div class="col-lg-4 col-sm-6 mb-4 productos" id="${element.idproducto}">
+                                    <div class="portfolio-item">
+                                    <a onclick="modaljeje(${element.idproducto},'${element.nombre_producto}','${element.descripcion_producto}','${element.imagen_producto}',${element.precio_producto},'${element.categoria_producto}',${element.cantidad})
+                                    "class="portfolio-link" data-bs-toggle="modal" href=".portfolio-modal">
+                                    <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                    </div>
+                                    <img class="img-fluid"style="height:500px; width:fill-content;" src="${appData.base_url}static/assets/img/build/img/calistenia/${imagen}"alt="..." />
+                                    </a>
+                                    <a  onclick="return iniciarSesion()" class="nav-link" style="margin-inline:inherit;display:flex;position:absolute;"> <i class="fa fa-heart"></i></a>
+                                    <div class="portfolio-caption">
+                                    <div class="portfolio-caption-heading">${element.nombre_producto}</div>
+                                    <div class="portfolio-caption-subheading text-muted">${element.descripcion_producto}</div>
+                                    </div>
+                                    </div>
+                                    </div>
+                                    `
+                            )
+                        }
+                        else{
+                            $("#portfolio").append(
+                                `
+                                    <div class="col-lg-4 col-sm-6 mb-4 productos" id="${element.idproducto}">
+                                    <div class="portfolio-item">
+                                    <a onclick="modaljeje(${element.idproducto},'${element.nombre_producto}','${element.descripcion_producto}','${element.imagen_producto}',${element.precio_producto},'${element.categoria_producto}',${element.cantidad})
+                                    "class="portfolio-link" data-bs-toggle="modal" href=".portfolio-modal">
+                                    <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                    </div>
+                                    <img class="img-fluid"style="height:500px; width:fill-content;" src="${appData.base_url}static/assets/img/build/img/calistenia/${imagen}"alt="..." />
+                                    </a>
+                                    <a id="addWishes_${element.idproducto}" onclick="addWishes(${element.idproducto},'${element.nombre_producto}','${element.descripcion_producto}','${element.imagen_producto}',${element.precio_producto},'${element.categoria_producto}')" class="nav-link" style="margin-inline:inherit;display:flex;position:absolute;"> <i id="idcorazon_${element.idproducto}"class="fa fa-heart"></i></a>
+                                    <div class="portfolio-caption">
+                                    <div class="portfolio-caption-heading">${element.nombre_producto}</div>
+                                    <div class="portfolio-caption-subheading text-muted">${element.descripcion_producto}</div>
+                                    </div>
+                                    </div>
+                                    </div>
+                                    `
+                            )
+                        }
+                       
                     }
                 });
                 appDataProductos = json;

@@ -50,8 +50,8 @@ $(document).ready(function () {
             x = 1;
         }
         else {
-            $("#NombreUser").removeClass("is-invalid");
-            $("#NombreUser").addClass("is-valid");
+            $("#emailUser").removeClass("is-invalid");
+            $("#emailUser").addClass("is-valid");
             x = 1;
         }
         if (password.length < 8) {
@@ -82,7 +82,7 @@ $(document).ready(function () {
                 "dataType": "json",
                 "type": "post",
                 "data": {
-                    "nombre_cliente": $("#Nombreuser").val(),
+                    "nombre_cliente": $("#nombreUser").val(),
                     "apellidos_cliente": $("#ApellidoUser").val(),
                     "telefono": $("#NumeroUser").val(),
                     "email_cliente": $("#emailUser").val(),
@@ -162,3 +162,8 @@ $(document).ready(function () {
         }
     })
 });
+
+
+const onchange = (entries,opbserver) => {
+
+}
