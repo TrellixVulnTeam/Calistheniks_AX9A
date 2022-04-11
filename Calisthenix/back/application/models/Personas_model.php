@@ -44,6 +44,11 @@ class Personas_model extends CI_Model{
         return $rs->num_rows() > 0 ? $rs->row()->idcliente : NULL;
     }
 
+    public function get_compras( $idcliente) {
+        $query = $this->db->query('SELECT * FROM compra where idcliente = '.$idcliente.'');
+        return $query->num_rows() > 0 ? $query->result() : NULL;
+    }
+
 
        // public function get_clientes(){
     //     $this->db->select("*");

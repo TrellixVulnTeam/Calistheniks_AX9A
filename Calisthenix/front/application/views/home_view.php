@@ -57,9 +57,8 @@
                         Don't you have an account?
                     </strong>
                 <?php elseif (!empty($this->session->userdata('idcliente'))) : ?>
-                    <strong style="color:white;padding-right: 20px;">
-                        <a data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true"> Welcome <?= $this->session->nombre_cliente ?> <?= $this->session->apellidos_cliente ?>
-                        </a>
+                    <strong style="color:white;padding-right: 20px; justify-content:baseline; align-items:baseline;">
+                        <a href="#" onclick="return miscompras()"> Welcome <?= $this->session->nombre_cliente ?> <?= $this->session->apellidos_cliente ?></a>
                     </strong>
                 <?php endif; ?>
             </div>
@@ -69,14 +68,13 @@
                 <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                     <!-- MOSTRAR INICIAR SESION O CERRAR SESION -->
                     <?php if (empty($this->session->userdata('idcliente'))) : ?>
-                        <li class="nav-item"> <a href="#" class="nav-link" onclick="return iniciarSesion()"><i class="fas fa-user me-2"></i> Login</a> </li>
+                        <li class="nav-item"> <a href="#" class="nav-link" onclick="return iniciarSesion()"><i class="fas fa-user me-2"></i> Login</a></li>
                     <?php elseif (!empty($this->session->userdata('idcliente'))) : ?>
-                        <li class="nav-item"><a class="nav-link" <a href="<?= base_url() ?>home/cierrasesion/<?= $this->session->email_cliente ?>/<?= $this->session->token ?>"><i class="fas fa-user me-2"></i> Log out</a></li>
+                        <li class="nav-item"><a class="nav-link" href="<?= base_url() ?>home/cierrasesion/<?= $this->session->email_cliente ?>/<?= $this->session->token ?>"><i class="fas fa-user me-2"></i> Log Out</a></li> 
                     <?php endif; ?>
 
 
                     <!-- MOSTRAR INICIAR SESION O CERRAR SESION -->
-                    <li class="nav-item"><a class="nav-link" href="#services" style="margin-inline:inherit">Utilities</a></li>
                     <li class="nav-item"><a class="nav-link" href="#portfolio" style="margin-inline:inherit">Products</a></li>
 
 
@@ -307,7 +305,10 @@
                                         <div class="input-field mb-3">
                                             <i class="fas fa-key iconleft" style="left:1px;"></i>
                                             <input type="password" name="pass" id="pass" autocomplete="off" placeholder="Contraseña" class="input" />
+
                                             <i onclick="show('pass')" class="fas fa-eye-slash fa-fw" id="display" style="margin-right:10px;"></i>
+
+
                                         </div>
                                         <input type="submit" value="Enter" class=" btn solid btn-session mb-2" />
 
@@ -374,10 +375,11 @@
 
                                             <div class="col-md-12 mb-3">
                                                 <label>Password</label>
-                                                <input type="text" class="form-control tiene" placeholder="Password" required name="passwordUser" id="passwordUser">
+                                                <input type="password" class="form-control tiene myInput" placeholder="Password" required name="passwordUser" id="passwordUser">
                                                 <div class="invalid-feedback">
                                                     Password must be 8 lenght minimum
                                                 </div>
+                                                <input type="checkbox" onclick="myFunction()">Show Password
                                             </div>
                                         </div>
                                         <div class="form-row">

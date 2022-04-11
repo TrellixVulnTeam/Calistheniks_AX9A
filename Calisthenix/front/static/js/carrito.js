@@ -34,3 +34,19 @@ function wishes() {
         })
         .fail();
 }
+
+function miscompras() {
+    $.ajax({
+        'url': appData.base_url + "carrito/miscompras/",
+        "type": "post",
+        "data": {
+            "idcliente": appData.idcliente,
+            "token": appData.token
+        }
+    })
+        .done(function (done) {
+            window.location.href = appData.base_url + "carrito/miscompras/" +
+                appData.idcliente + "/" + appData.token;
+        })
+        .fail();
+}

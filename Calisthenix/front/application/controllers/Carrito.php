@@ -21,6 +21,13 @@ class Carrito extends CI_Controller
 		);
 		$this->load->view("deseos_view", $dataCliente);
 	}
-
+	public function miscompras($idcliente = null, $token = null)
+	{
+		$dataCliente["dataCliente"] = array(
+			"idcliente" => $idcliente,
+			"token" => $token
+		);
+		$this->load->view("miscompras_view", $dataCliente);
+	}
 	
 }

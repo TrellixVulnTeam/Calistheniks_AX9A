@@ -9,6 +9,7 @@ class Home extends CI_Controller
         $this->load->view('home_view');
     }
 
+
     public function inicio($idcliente, $nombre_cliente, $email_cliente, $apellidos_cliente, $direccion, $token)
     {
         $this->session->set_userdata("idcliente", $idcliente);

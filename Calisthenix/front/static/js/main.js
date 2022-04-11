@@ -27,3 +27,18 @@ $('#loginM').on('hidden.bs.modal', function (e) {
     document.getElementById("modal_inicio_session_m").style.display = "block";
 });
 
+
+
+// function myFunction() {
+//     alert("Mmm");
+//   var x = document.getElementsByClassName("myInput")
+//   if (x.type === "password") {
+//     x.type = "text";
+//   } else {
+//     x.type = "password";
+//   }
+// }
+
+
+
+
